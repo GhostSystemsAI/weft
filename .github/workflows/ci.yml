@@ -1,0 +1,98 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+env:
+  # Pins from decision 0002. Changing either is a change to that decision.
+  TOOLKIT_COMMIT: 821221767c3c56cb1ebe7da22666197a47c9c645
+  LIBRARY_COMMIT: de1070ae8e79c21532b8004fc663d47b35d0e9fa
+
+jobs:
+  toolkit-wheel:
+    # Builds the sysml-toolkit Python bindings (`sysmlv2`) once per pinned
+    # commit. The wheel targets the abi3 stable ABI (pyo3 feature abi3-py39),
+    # so one Linux and one Windows wheel serve every Python version below.
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Restore the cached wheel
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: wheelhouse
+          key: sysmlv2-wheel-${{ runner.os }}-${{ env.TOOLKIT_COMMIT }}-${{ env.LIBRARY_COMMIT }}
+
+      - name: Check out sysml-toolkit at the pinned commit
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: Open-MBEE/sysml-toolkit
+          ref: ${{ env.TOOLKIT_COMMIT }}
+          path: sysml-toolkit
+
+      - name: Fetch the standard library and verify its pin
+        if: steps.cache.outputs.cache-hit != 'true'
+        shell: bash
+        working-directory: sysml-toolkit
+        run: |
+          git submodule update --init spec-refs/SysML-v2-Release
+          actual="$(git -C spec-refs/SysML-v2-Release rev-parse HEAD)"
+          if [ "$actual" != "$LIBRARY_COMMIT" ]; then
+            echo "library at $actual, decision 0002 pins $LIBRARY_COMMIT" >&2
+            exit 1
+          fi
+
+      - name: Install Rust
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: dtolnay/rust-toolchain@stable
+
+      - uses: actions/setup-python@v5
+        if: steps.cache.outputs.cache-hit != 'true'
+        with:
+          python-version: "3.11"
+
+      - name: Build the abi3 wheel with maturin
+        if: steps.cache.outputs.cache-hit != 'true'
+        shell: bash
+        run: |
+          python -m pip install "maturin>=1.5,<2"
+          maturin build --release --manifest-path sysml-toolkit/crates/sysmlv2-py/Cargo.toml --out wheelhouse
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sysmlv2-wheel-${{ runner.os }}
+          path: wheelhouse/*.whl
+
+  test:
+    needs: toolkit-wheel
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.11", "3.12", "3.13"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: sysmlv2-wheel-${{ runner.os }}
+          path: wheelhouse
+
+      - name: Install the toolkit wheel and weft
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-index --find-links wheelhouse sysmlv2
+          python -m pip install -e ".[test]"
+
+      - name: Run the tests
+        run: python -m pytest

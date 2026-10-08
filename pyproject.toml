@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "weft"
+description = "Digital-thread derivation and validation for SysML v2 models kept in git"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.11"
+dynamic = ["version"]
+# sysml-toolkit's Python bindings (import name `sysmlv2`) are deliberately not
+# declared here. The name `sysmlv2` on PyPI belongs to an unrelated placeholder
+# project (decision 0002), so a declared dependency would resolve to the wrong
+# package. The bindings are built from sysml-toolkit at the commit pinned in
+# decision 0002 (`crates/sysmlv2-py`, built with maturin) and installed before
+# weft; CI does this in the `toolkit-wheel` job of .github/workflows/ci.yml.
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[tool.setuptools.dynamic]
+version = { attr = "weft.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
