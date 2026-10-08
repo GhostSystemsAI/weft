@@ -5,7 +5,7 @@ writable directory (the default `~/.cache` is read-only in this environment):
 
 ```
 sysmlv2 check --strict --lib /tmp/spike1-sysml-release/sysml.library \
-  spike/model/profile.sysml spike/model/pump-system.sysml
+  spike/model/profile.sysml spike/model/pump-library.sysml spike/model/pump-system.sysml
 ```
 
 Output: none on stdout or stderr. Exit status 0.
@@ -16,7 +16,11 @@ Output: none on stdout or stderr. Exit status 0.
 required `bearer` feature mirroring decision 0005; `Interface`, mirroring decision 0006; `Process`,
 mirroring decision 0007) and the `BearerKind` enumeration.
 
-`spike/model/pump-system.sysml`: a pump system with
+`spike/model/pump-library.sysml` (added at step 5, OQ4: definitions belong in a library package):
+the pump system's definitions. `spike/model/pump-system.sysml` imports it and holds only the
+usages, requirements, and satisfy/verify relationships below.
+
+A pump system with
 
 - 5 part definitions: `PumpSystem`, `Pump`, `Controller`, `PressureSensor`, `Enclosure`, each
   carrying `@Component`.
