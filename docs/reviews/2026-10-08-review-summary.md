@@ -43,18 +43,18 @@ Branch `review/buildability-2026-10-08`, filed as [zwelz3/weft#4](https://github
 
 ## 3. MR2: closing the gaps
 
-Branch `gaps/buildability-2026-10-08`, based on MR1. One commit per item, in the order the review gives. Items 1 to 3 have landed. Items 4 to 8 follow. The branch will be filed as a second pull request on top of MR1.
+Branch `gaps/buildability-2026-10-08`, based on MR1. One commit per item, in the order the review gives. All eight items have landed. The branch is filed as [zwelz3/weft#5](https://github.com/zwelz3/weft/pull/5) on top of MR1.
 
 | Item | Change | State |
 |---|---|---|
-| 1. License | Apache-2.0 `LICENSE` with copyright holder Zech Welz, a License section in README.md, and rule 13 in AGENTS.md requiring a compatibility check of every packaged dependency. The commit body states that the license is the maintainer's choice and Apache-2.0 is a proposal. | Landed |
+| 1. License | Apache-2.0 `LICENSE` with copyright holder Zech Welz, a License section in README.md, and rule 13 in AGENTS.md requiring a compatibility check of every packaged dependency. Apache-2.0 was adopted on 2026-10-08; the earlier commit body calls it a proposal. | Landed |
 | 2. Pins | Decision 0002 states the toolkit commit `8212217` (release 0.10.2), the library commit `de1070a`, and the id scheme Weft consumes. Decision 0003 pins holonic `main` at `d8d1758` until 0.9.0. Every row of the STATUS.md versions table carries a hash. | Landed |
 | 3. Package and CI | `pyproject.toml`, `src/weft/__init__.py`, `tests/test_package.py`, and `.github/workflows/ci.yml`. The workflow builds the `sysmlv2` abi3 wheel once per pinned toolkit commit, caches it by hash, and runs a test matrix on Ubuntu and Windows across Python 3.11 to 3.13. `tests/test_status.py` is an offline structural check of the STATUS.md open-work table. | Landed |
-| 4. Decisions 0005 to 0007 | Component as a role borne by a material artifact or an information content entity. Interface applied to the definition only, as an information content entity. The action-definition stereotype named for what it exports, with the reason CCO's Function does not fit. Status: proposed. | Pending |
-| 5. Thread queries | `queries/` with five SPARQL SELECT files derived from the traceability matrix and gap analysis, each stating its question, assumed projection terms, and expected columns. They are the specification for spike step 4 and are untested until the graph contract exists. | Pending |
-| 6. Graph contract skeleton | `docs/graph-contract.md` with section headings and one sentence each: IRI minting, element mapping, relationship mapping and ranges, ordered properties, projection vocabulary, contract versioning. Spike 1 fills it. | Pending |
-| 7. Upstream issue draft | `docs/outreach/sysml-toolkit-rename-stable-identity.md`, an issue text for Open-MBEE/sysml-toolkit citing the IDS.md backlog entry. The maintainer files it. | Pending |
-| 8. STATUS.md | Phase, open work, and versions reflect the above. | Pending |
+| 4. Decisions 0005 to 0007 | Component as a role borne by a material artifact or an information content entity. Interface applied to the definition only, as an information content entity. The action-definition stereotype named for what it exports, with the reason CCO's Function does not fit. Status: proposed. | Landed |
+| 5. Thread queries | `queries/` with five SPARQL SELECT files derived from the traceability matrix and gap analysis, each stating its question, assumed projection terms, and expected columns. They are the specification for spike step 4 and are untested until the graph contract exists. | Landed |
+| 6. Graph contract skeleton | `docs/graph-contract.md` with section headings and one sentence each: IRI minting, element mapping, relationship mapping and ranges, ordered properties, projection vocabulary, contract versioning. Spike 1 fills it. | Landed |
+| 7. Upstream issue draft | `docs/outreach/sysml-toolkit-rename-stable-identity.md`, an issue text for Open-MBEE/sysml-toolkit citing the IDS.md backlog entry. The maintainer files it. | Landed |
+| 8. STATUS.md | Phase, open work, and versions reflect the above. | Landed |
 
 ## 4. Proposed spike
 
