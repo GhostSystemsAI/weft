@@ -64,3 +64,25 @@ Tier 2 in decision 0001 depends on converting SysML v2 API JSON back to textual 
 ## OQ10. Projection vocabulary and adapter ontologies
 
 The digital thread has no central ontology. Each adapter (Excel, Teamwork Cloud, and others) maps its source into its own ontology, and linking across them is unfinished. The projection's terms (component, interface, requirement, decision, and the trace links between them) are therefore Weft's own vocabulary rather than an alignment to an existing one. Open is whether adapter ontologies align to the projection through holonic alignment holons, which makes the projection the hub for cross-source queries, or whether each pair of sources is aligned directly. The first needs one alignment per adapter; the second needs one per pair of adapters that must be queried together.
+
+## OQ11. Graphical editing and tier 2
+
+Decision 0001 places edits made in tools that write to Flexo (tier 2) out of plan, and the adopter capabilities plan ([docs/plans/adopter-capabilities.md](plans/adopter-capabilities.md), C2) lists editing in SysML tools as a need. Read-only use of graphical tools fits tier 1. Graphical editing that keeps git as the record needs a path from the tool's edits to a pull request against the textual notation, which depends on JSON-to-text conversion (OQ9) and on identifiers that survive the round trip (OQ2).
+
+Open is whether the adopter needs graphical editing or only graphical viewing. If editing is needed, the next question is whether the tool writes through the SysML v2 API (and so through Flexo) or keeps its own store, because the second case needs an export step per tool.
+
+## OQ12. Links from requirements to source passages
+
+A requirement extracted from a document needs a link to the passage it came from. The profile brief's trace metadata has no feature for it. Three ranges are candidates, and each is a different graph contract:
+
+- a document IRI with a fragment identifier, emitted under `dct:source`;
+- a passage resource with its own IRI, linked by `prov:wasDerivedFrom`, carrying the document, its revision, and the location within it;
+- a link to an element in a requirements-tool export (ReqIF), when the source is a requirements tool rather than a document.
+
+Current leaning is the passage resource, because it records the document revision, so a later revision of the document can be compared with the requirements derived from the earlier one. Undecided is how a passage is identified when the document has no stable anchors (a PDF, for example).
+
+## OQ13. Issue state in reports
+
+The profile brief stores issue keys in the model and resolves them to IRIs, which supports a traceability matrix that lists keys. Reports that use an issue's state (status, resolution, assignee) need data held in Jira or GitLab. Decision 0001 requires the core to work without a server, and AGENTS.md rule 9 forbids network access at validation time.
+
+Current leaning is an adapter per issue system that runs as its own step, in CI or on demand, and writes issue state into a source holon with the time of synchronization in its context graph. Validation and report generation read only that holon, and a report states the synchronization time it reflects. Open is whether the synchronized state is committed to git or kept as a build artifact; committing it makes reports reproducible from a checkout, and keeping it as an artifact keeps issue data out of the model's history.
