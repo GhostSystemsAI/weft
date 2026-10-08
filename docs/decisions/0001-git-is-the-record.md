@@ -1,6 +1,6 @@
 # 0001. Git is the record
 
-- Status: proposed
+- Status: accepted
 - Date: 2026-10-08
 
 ## Context

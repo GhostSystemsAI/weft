@@ -6,7 +6,7 @@ Design questions that are not yet decided. Each entry states the question, what 
 
 Reasoning is deferred. OWL reasoning over the exported class layer would detect contradictions that SHACL cannot, for example an element stereotyped as a process whose definition is aligned to a BFO material entity, where BFO declares the two disjoint. Deferring reasoning also defers most of the value of BFO/CCO alignment (OQ4), because without a reasoner or a query that uses the aligned categories the alignment serves as documentation.
 
-Undecided when reasoning becomes a priority is where it runs. An OWL RL rule set inside the quad store keeps inferences current but is limited to the RL profile. A DL reasoner run in CI covers more of OWL 2 and produces results only at build time.
+Undecided when reasoning becomes a priority is where it runs. The deployed store is Fuseki, where a dataset can be configured with one of Jena's rule-based reasoners (RDFS or an OWL rule set); inferences then stay current, and coverage is limited to what the rule set implements. A DL reasoner run in CI covers more of OWL 2 and produces results only at build time.
 
 ## OQ2. Element identity
 
@@ -35,11 +35,13 @@ Ontologies are exported from SysML library packages so that a domain definition 
 
 Definitions and specialization derive to OWL classes and `rdfs:subClassOf` without loss. Usages with contextual features, redefinition in context, and feature chains have no direct OWL equivalent, so reusable knowledge belongs in definitions inside library packages.
 
-BFO/CCO grounding is applied through a profile. A stereotype such as `«MaterialArtifact»` is aligned once to its BFO/CCO class in an alignment file kept outside the SysML, and an element that carries the stereotype inherits the alignment in the exported ontology. A test asserts that every stereotype has exactly one alignment axiom and that every alignment axiom names an existing stereotype.
+BFO/CCO grounding is applied through a profile. A stereotype such as `«MaterialArtifact»` is aligned once to its BFO/CCO class in an alignment file kept outside the SysML, and an element that carries the stereotype inherits the alignment in the exported ontology. A test asserts that every stereotype has exactly one alignment axiom and that every alignment axiom names an existing stereotype. The alignment targets the current CCO release; because CCO publishes new releases, the alignment file records the CCO version IRI it was written against, and a CCO upgrade is a reviewed change to that file.
 
 ## OQ5. Identity links and trace links
 
 `owl:sameAs` states that two IRIs denote one individual. It applies to co-reference, such as one pump recorded in an asset database and in a configuration database. It does not apply to a ticket that tracks a requirement or a commit that implements one; those are trace links and use the OSLC link vocabulary.
+
+Fuseki merges nothing on `owl:sameAs` unless a reasoner that implements the equality rules is configured for the dataset, so with the deployed store an identity assertion changes query results only where a query or portal follows it explicitly.
 
 Current leaning is a holon subtype that holds only identity assertions, each with provenance naming the matcher or person that made it. Queries and portals can include or exclude that graph, and a wrong match is withdrawn by removing it from one graph. This requires a holonic enhancement; holonic's `AlignmentHolon` holds vocabulary mappings and is not extended to entity identity.
 
@@ -58,3 +60,7 @@ Out of scope at the start. OpenSysML is the only implementation that executes ac
 ## OQ9. Round trip for edits made in Flexo
 
 Tier 2 in decision 0001 depends on converting SysML v2 API JSON back to textual notation. sysml-toolkit reads JSON back to text; which formatting and comment placement the conversion loses is not yet measured.
+
+## OQ10. Projection vocabulary and adapter ontologies
+
+The digital thread has no central ontology. Each adapter (Excel, Teamwork Cloud, and others) maps its source into its own ontology, and linking across them is unfinished. The projection's terms (component, interface, requirement, decision, and the trace links between them) are therefore Weft's own vocabulary rather than an alignment to an existing one. Open is whether adapter ontologies align to the projection through holonic alignment holons, which makes the projection the hub for cross-source queries, or whether each pair of sources is aligned directly. The first needs one alignment per adapter; the second needs one per pair of adapters that must be queried together.

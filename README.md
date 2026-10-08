@@ -27,13 +27,18 @@ Git is the record. Every core feature works on a git checkout without a server, 
 
 | Project | Role for Weft |
 |---|---|
-| [sysml-toolkit](https://github.com/Open-MBEE/sysml-toolkit) | Rust parser, validator, and interchange library for SysML v2 and KerML, with Python bindings. The intended dependency for parsing, well-formedness checking, and JSON interchange. |
+| [sysml-toolkit](https://github.com/Open-MBEE/sysml-toolkit) | Rust parser, validator, and interchange library for SysML v2 and KerML, with Python bindings. Weft's dependency for parsing, well-formedness checking, and JSON interchange (decision 0002). |
 | [OpenSysML](https://github.com/Open-MBEE/OpenSysML) | Go implementation that also executes actions and state machines. Not a dependency; behavioral execution is out of scope for now (see the open questions). |
 | [flexo-mms-sysmlv2](https://github.com/Open-MBEE/flexo-mms-sysmlv2) | SysML v2 API service on Flexo MMS. The target of the optional mirror. |
-| [holonic](https://github.com/zwelz3/holonic) | Four-graph holon substrate (interior, boundary, projection, context) over a quad store. The intended organization for the derived graphs and the external sources they link to. |
+| [holonic](https://github.com/zwelz3/holonic) | Four-graph holon substrate (interior, boundary, projection, context) over a quad store. Organizes the derived graphs and the sources they link to (decision 0003). |
 | [specl](https://github.com/zwelz3/specl) | Markdown specification language with an RDF graph contract. Weft carries over its working rules on graph contracts and identity. |
+
+## Environment
+
+Weft is a Python library (decision 0004). The deployed quad store is Apache Jena Fuseki, and tier 0 runs on an in-memory rdflib store. Sources such as Excel workbooks and Teamwork Cloud reach the thread through adapters, each with its own ontology; no central ontology unifies them, and Weft links to them through holonic alignment holons and portals.
 
 ## Documents
 
 - [docs/decisions/](docs/decisions/) holds the decision records.
+- [docs/plans/](docs/plans/) holds briefs for work that has not started.
 - [docs/OPEN-QUESTIONS.md](docs/OPEN-QUESTIONS.md) lists the design questions that are not yet decided, with the current leaning for each.
