@@ -1,6 +1,6 @@
 # Working rules
 
-Invariants for any session on this repository. Read [README.md](README.md), the records in [docs/decisions/](docs/decisions/), and [docs/OPEN-QUESTIONS.md](docs/OPEN-QUESTIONS.md) before proposing a design change.
+Invariants for any session on this repository. Read [STATUS.md](STATUS.md) first for the current state and open work, then [README.md](README.md), the records in [docs/decisions/](docs/decisions/), and [docs/OPEN-QUESTIONS.md](docs/OPEN-QUESTIONS.md) before proposing a design change. A session that changes the project's state updates STATUS.md before it ends.
 
 ## Invariants
 

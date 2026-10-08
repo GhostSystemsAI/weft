@@ -30,7 +30,12 @@ A model version is a holon of its own and never shares a holon with another vers
 
 The adapters' separate ontologies are reconciled through alignment holons and portals rather than through a central ontology that Weft would have to define first.
 
-holonic requires enhancements before this design works end to end: a backend that reads through Flexo MMS, a holon subtype for identity assertions, a query helper that requires a version, and a fix for the validation gap in which a shape targeting a class reports conformance when no instance of that class is present (holonic OQ11 and issue [#30](https://github.com/zwelz3/holonic/issues/30)). Both projects have the same maintainer, so these changes are proposed as holonic issues.
+holonic requires enhancements before this design works end to end. Both projects have the same maintainer, so each is a holonic issue:
+
+- a check that fails validation on interior nodes whose types no boundary shape targets ([zwelz3/holonic#50](https://github.com/zwelz3/holonic/issues/50), after [#30](https://github.com/zwelz3/holonic/issues/30));
+- a holon subtype for identity assertions ([#51](https://github.com/zwelz3/holonic/issues/51));
+- a query helper that requires a version scope ([#52](https://github.com/zwelz3/holonic/issues/52));
+- a backend that reads model versions from Flexo MMS ([#53](https://github.com/zwelz3/holonic/issues/53)).
 
 ## Alternatives considered
 
