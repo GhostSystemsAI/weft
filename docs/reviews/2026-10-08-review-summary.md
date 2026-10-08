@@ -1,6 +1,6 @@
 # Review summary, 2026-10-08
 
-Companion to [2026-10-08-buildability.md](2026-10-08-buildability.md). That document holds the full review. This one records what was found, what each of the two pull requests changes, and the spike that follows them. The results sections are placeholders until the spike runs.
+Companion to [2026-10-08-buildability.md](2026-10-08-buildability.md). That document holds the full review. This one records what was found, what each of the two pull requests changes, and the spike that follows them. The results section records spike 1 as run on branch `spike/1-graph-contract`.
 
 ## 1. Findings
 
@@ -96,13 +96,13 @@ If M1 shows acceptable churn, Weft needs only a thin sidecar map and the profile
 
 ### Results
 
-To follow. Each measurement above gets a row here with the number observed, the model and commit it was observed on, and the open question it revised.
+Spike 1 ran on branch `spike/1-graph-contract`. Details and method are in `spike/RESULTS.md`. The decision rule resolved to the first branch: churn is acceptable and Weft needs only a sidecar map. Step 7 ran on rdflib only; the Fuseki run is deferred because no plain HTTP Fuseki endpoint was available.
 
 | ID | Observed | Model | Toolkit commit | Open question change |
 |---|---|---|---|---|
-| M1 | | | | |
-| M2 | | | | |
-| M3 | | | | |
-| M4 | | | | |
-| M5 | | | | |
-| M6 | | | | |
+| M1 | Insert 0.0%, reorder 0.0%, move 1.0%, rename 5.7%, extract 24.1% of 507 ids changed | pump model, 503 elements | `8212217` (0.10.2) | OQ2: sidecar map suffices, upstream issue not a blocker |
+| M2 | 28 shared ids of 507, all from the identically named and identical profile file; none from the renamed packages | pump model, 503 elements | `8212217` (0.10.2) | OQ2: collision is a source-naming question |
+| M3 | Comments dropped, formatting rewritten; no construct, name, or relationship lost | pump model, 503 elements | `8212217` (0.10.2) | OQ9: tier 2 needs comment preservation |
+| M4 | 16 of 16 definitions to classes; 8 of 10 nested features to object properties (2 scalar) | pump model, 503 elements | `8212217` (0.10.2) | OQ4: confirmed as stated |
+| M5 | Five queries at two to four triple patterns on the projection; normative versions not written | pump model, 503 elements | `8212217` (0.10.2) | OQ10: saving unmeasured |
+| M6 | 10 of 10 injected faults caught on a stand-in table; vacuous pass as a normative-graph boundary | pump model, 503 elements | `8212217` (0.10.2) | OQ6: normative boundary needs its own shapes |
