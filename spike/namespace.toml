@@ -1,0 +1,25 @@
+# Spike 1 namespace configuration (AGENTS.md rule 4: IRIs mint only into a
+# namespace the project owns). Each project gets its own base; M2 (step 8)
+# emits two structurally identical projects under different bases to test
+# id collision across projects.
+
+[pump-system]
+base = "https://weft.ghostsystems.ai/spike1/pump-system/"
+# Requirement short names mint under base + "requirement/" + the short name,
+# escaped the same way sysml-toolkit escapes id-names in IDS.md (non
+# [A-Za-z0-9_-] characters percent-escaped). Every other element keeps its
+# toolkit-derived id under base + "element/" + elementId.
+requirement_mint_pattern = "{base}requirement/{short_name}"
+element_mint_pattern = "{base}element/{element_id}"
+
+[quadcopter]
+base = "https://weft.ghostsystems.ai/spike1/quadcopter/"
+requirement_mint_pattern = "{base}requirement/{short_name}"
+element_mint_pattern = "{base}element/{element_id}"
+
+[project-b]
+# M2 only: a second project with the pump system's identical structure
+# under a different package name, to test id collision between projects.
+base = "https://weft.ghostsystems.ai/spike1/project-b/"
+requirement_mint_pattern = "{base}requirement/{short_name}"
+element_mint_pattern = "{base}element/{element_id}"
