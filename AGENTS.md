@@ -28,6 +28,8 @@ Invariants for any session on this repository. Read [STATUS.md](STATUS.md) first
 
 12. **Dependencies off PyPI are pinned by commit.** Every dependency resolved from source (sysml-toolkit, its vendored standard library, and holonic until a release carries the fixes Weft needs) is pinned by commit hash in the repository, and every row of the versions table in STATUS.md records the hash it was reviewed at.
 
+13. **The repository is licensed under Apache-2.0.** Every dependency that ships in the package is checked for compatibility before packaging.
+
 ## Style
 
 Draft documents with the `better-language-skill` skill. The skill is not vendored in this repository, so the following rules stand in for it when it is unavailable. American English spelling. Section headings are sentences or noun phrases. No em-dashes for sentence flow. State material impersonally in documentation. Do not estimate work in calendar time. One claim per sentence. No hedging, filler, or rhetorical questions. Name the concrete thing (a file, a commit, an issue) rather than the category it belongs to. Lists only for parallel items; argument stays in prose.

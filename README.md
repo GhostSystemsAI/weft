@@ -43,3 +43,7 @@ Weft is a Python library (decision 0004). The deployed quad store is Apache Jena
 - [docs/decisions/](docs/decisions/) holds the decision records.
 - [docs/plans/](docs/plans/) holds briefs for work that has not started.
 - [docs/OPEN-QUESTIONS.md](docs/OPEN-QUESTIONS.md) lists the design questions that are not yet decided, with the current leaning for each.
+
+## License
+
+Weft is licensed under the Apache License 2.0; the text is in [LICENSE](LICENSE).
