@@ -1,0 +1,29 @@
+# Question: which requirements have no satisfying element?
+# (Gap analysis, requirements with no satisfying element.)
+# Expected columns: ?requirement ?shortName
+#
+# Projection terms assumed (placeholders until docs/graph-contract.md fixes them):
+#   proj: is a placeholder namespace; the projection vocabulary and its
+#   namespace are open (OQ10) and are fixed by the graph contract.
+#   proj:Requirement      class of requirement elements (Requirement stereotype)
+#   proj:Component        class of component elements (decision 0005)
+#   proj:shortName        declared short name of an element (literal)
+#   proj:SatisfyClaim     one SysML `satisfy` relationship
+#   proj:requirement      object property, SatisfyClaim -> Requirement
+#   proj:satisfiedBy      object property, SatisfyClaim -> satisfying element
+#   proj:verdict          verdict from `sysmlv2 verify` for the claim:
+#                         "satisfied", "violated", or "undecided" (literal)
+#   proj:verifiedBy       object property, Requirement -> verification case
+
+PREFIX proj: <urn:x-weft-placeholder:projection#>
+
+SELECT ?requirement ?shortName
+WHERE {
+  ?requirement a proj:Requirement ;
+               proj:shortName ?shortName .
+  FILTER NOT EXISTS {
+    ?claim a proj:SatisfyClaim ;
+           proj:requirement ?requirement .
+  }
+}
+ORDER BY ?shortName
