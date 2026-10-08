@@ -14,8 +14,8 @@ The initial adopter needs four capabilities from Weft. This plan maps each one o
 | Capability | Covered by the design today | Missing |
 |---|---|---|
 | C1 | The intended workflow in the README and AGENTS.md rule 2 (prompts are not records). sysml-toolkit reports `check` and `lint` findings as JSON, edits text through span-anchored transformations that keep formatting, and runs a language server (decision 0002). | The agent's tool surface, the repair loop, and extraction of requirements from documents. Spike 1 excludes LLM generation. |
-| C2 | sysml-toolkit renders seven PlantUML views (structure tree, interconnection, state, action, sequence, use case, mixed) and ships a language server with a VS Code client. The Flexo mirror (tier 1, decision 0001) exposes the standard SysML v2 API that other tools read. | Which tools the adopter uses. Graphical editing in a tool that keeps its own store is tier 2 in decision 0001, which is not planned. |
-| C3 | Declared short names on linked elements (OQ2). The profile's trace metadata with OSLC properties, resolved to IRIs through a per-project key configuration (profile brief). Adapter sources as holons joined by portals (decision 0003). | A link from a requirement to the document passage it came from. The mapping from the adopter's link types to SysML v2 constructs. How issue state (status, assignee, resolution) reaches Weft. |
+| C2 | sysml-toolkit renders seven PlantUML views (structure tree, interconnection, state, action, sequence, use case, mixed) and ships a language server with a VS Code client. The Flexo mirror (tier 1, decision 0001) exposes the standard SysML v2 API that other tools read. | Confirmation that Kotar, the adopter's editor, writes textual notation that keeps its formatting, short names, and metadata (OQ11). A requirements diagram with satisfy and verify edges. |
+| C3 | Declared short names on linked elements (OQ2). The profile's trace metadata with OSLC properties, resolved to IRIs through a per-project key configuration (profile brief). Adapter sources as holons joined by portals (decision 0003). | The mapping from the adopter's link types to SysML v2 constructs. How issue state (status, assignee, resolution) reaches Weft. |
 | C4 | Nothing in Weft. specl computes a maturity score from SHACL findings weighted by priority and records each assessment as a `prov:Activity`, and has no traceability matrix or coverage report. sysml-toolkit's `verify` decides each `satisfy` claim as satisfied, violated, or undecided. | Every report. |
 
 ## C1. Agent-assisted modeling
@@ -28,17 +28,21 @@ The reasons behind a modeling choice go into decision records (AGENTS.md rule 2)
 
 ## C2. Visualization and editing in SysML tools
 
-Three paths are available, and only the third conflicts with decision 0001.
+The adopter edits graphically and textually in Starforge Kotar, a commercial browser-based SysML v2 environment from Planetary Utilities. Kotar's source is not public, so what is known comes from its public support repository ([planetaryutilities/kotar-support](https://github.com/planetaryutilities/kotar-support)).
+
+- Its self-hosting guide states that Kotar proxies git smart-HTTP operations to configured GitLab instances, that repositories remain in the browser workspace, and that GitLab enforces each user's permissions and protected branches.
+- Its architecture diagram, marked draft, shows a textual editor, a graphical editor, a linter, an "OpenMBEE SysML v2 Kernel", and a source-control component that writes to a textual model repository on GitHub or GitLab, with a remote Flexo instance marked optional.
+- Its example model, `examples/satisy_requirements.sysml`, fails `sysmlv2 check --strict` only on an unused private import (a warning), and `sysmlv2 verify` decides both of its `satisfy` claims as satisfied.
+
+If Kotar commits textual notation to the repository, a graphical edit reaches git as a change to the text and goes through the same pull request and CI checks as any other change. Graphical editing then fits tier 0 of decision 0001, and the tier 2 path (edits written to Flexo and returned to git) is not needed for this adopter. OQ11 records this leaning and what remains to verify.
 
 | Path | Tier | What it gives | What it requires |
 |---|---|---|---|
+| Kotar, committing textual notation to the GitLab repository | 0 | Graphical and textual editing, with every change reviewed as a pull request | Kotar's own deployment; confirmation of the points under OQ11 |
 | Text editor with the toolkit's language server, and PlantUML views rendered in CI | 0 | Diagnostics, navigation, completion, and refactorings while editing; diagrams as build artifacts linked from the pull request | Nothing beyond the toolkit and a PlantUML renderer |
 | A SysML v2 tool reads the Flexo mirror through the standard API | 1 | Visualization and querying in any tool that implements the SysML v2 API client | Flexo MMS and the mirror step |
-| A graphical editor writes changes back | 2 | Graphical editing | A path from the tool's edits to a pull request against the textual notation, which depends on JSON-to-text conversion (OQ9) |
 
-Read-only use of graphical tools fits decision 0001. Graphical editing does not, because decision 0001 marks tier 2 as not planned. If the adopter needs graphical editing, tier 2 moves into scope, OQ9 moves onto the critical path, and the edit path has to be designed so that git remains where changes are reviewed. Open question OQ11 records this.
-
-Whether a given graphical tool can import textual notation directly, which would give a tier 0 path for viewing, is not verified for any tool.
+Three properties of Kotar's output decide how well it works with Weft, and none is verified yet. The first is whether a graphical edit rewrites only the changed elements or regenerates the file; a regenerated file makes every review diff large. The second is whether the kernel accepts constructs outside the SysML v2 grammar, which decision 0002 rejects; the CI check catches such constructs, but an editor that produces them creates failures the person editing cannot see. The third is whether Kotar preserves declared short names and metadata annotations, on which Weft's identity (OQ2) and trace links depend.
 
 ## C3. Requirements capture, decomposition, and linking
 
@@ -55,17 +59,17 @@ SysML v2 expresses most of the requirement relationships the adopter names with 
 | Verify | `verify R;` inside the objective of a `verification def` or `verification` usage | The verification case is a model element; the test that implements it is external. |
 | Trace | `dependency a to b;` | SysML v2 has no trace keyword. A generic dependency carries no meaning beyond "related", so the profile may define a metadata kind for it. |
 | Tracked by, implemented by, validated by (an issue, a commit, a test) | The profile's trace metadata, one feature per OSLC property | Keys resolve to IRIs through the per-project configuration (profile brief). |
-| Source passage | Not yet designed | OQ12. |
+| Source passage | Not needed for this adopter | OQ12, deferred. |
 
 ### Source passages
 
-A requirement extracted from a document needs a link to the passage it came from, so that a reviewer can check the extraction and a later revision of the document can be compared against the requirements derived from it. The profile brief's trace metadata covers issues, commits, and tests and has no feature for a source. The link's range and its target's identity are open (OQ12): a document IRI with a fragment identifier, a `dct:source`, or a `prov:wasDerivedFrom` from the requirement to a passage resource each fix a different property range, and the choice is a graph-contract decision (AGENTS.md rule 3).
+The adopter supplies requirement text in the prompt to the agent rather than as separate documents. Under AGENTS.md rule 2 the prompt is not a record, so the requirement element is the record, and its provenance is the commit that added it and the review that approved it. A link from a requirement to a source passage is therefore not needed for this adopter. OQ12 stays open, deferred, for adopters whose requirements come from documents or from a requirements tool.
 
 ### Issue systems
 
 The profile brief stores issue keys in the model and resolves them to IRIs. That is enough for a traceability matrix that lists keys. A report that shows an issue's status, or a gap analysis that finds requirements whose issues are closed while the requirement is unverified, needs the issue's state, which lives in Jira or GitLab. Under decision 0001 the core works without a server, and under AGENTS.md rule 9 validation fetches nothing; neither forbids a separate synchronization step. The leaning recorded in OQ13 is an adapter per issue system that runs as its own step (in CI or on demand), writes the issue state as a source holon, and is never called during validation or report generation. Reports then run on the last synchronized state and state its timestamp.
 
-Creating issues from requirements (the reverse direction) is a separate feature, and whether the adopter needs it is listed under "Questions for the adopter".
+The adopter records links to existing issues and does not need Weft to create issues. Creating issues from requirements is deferred; for other adopters it is a candidate tool in the agent's MCP surface (C1), where an agent proposes the issue and a person approves it, rather than a step in the derivation.
 
 ## C4. Reports
 
@@ -75,9 +79,21 @@ Each report is a set of SPARQL queries over the projection and the adapter holon
 |---|---|
 | Requirements traceability matrix | One row per requirement: short name, text, parent, derived requirements, satisfying elements and the `verify` verdict for each claim, verification cases, issues, commits, tests, and source passage |
 | Gap analysis | Requirements with no satisfying element, no verification, or no issue; elements stereotyped as components that no requirement concerns; derived requirements with no original; issue keys in the model that resolve to no synchronized issue; `satisfy` claims that `verify` reports as violated |
-| Architecture maturity | Counts of `ModelingMetadata::StatusInfo` values (TBD, TBR, TBC, done, closed), `check`, `lint`, and SHACL findings weighted by severity as specl weights them, coverage fractions from the gap analysis, and the history of each measure across tagged versions |
+| Architecture maturity | A set of maturity queries (below), each reported with its value and its history across tagged versions |
 
-"Architecture maturity" has no agreed definition yet, and the measure above is a starting point for the adopter to revise.
+### Maturity queries
+
+Architecture maturity is measured by a set of queries over the projection, and the set starts small and grows. Each query is a file in a registry with an identifier, a description of what it measures, the element kinds it applies to, and the SPARQL that computes it; a report runs every query in the registry. Adding a measure is adding a file, and a test asserts that every query in the registry runs against the corpus model (AGENTS.md rule 8). Thresholds are not part of the first set, because what counts as mature differs between adopters and between phases of one project.
+
+| Candidate measure | What it indicates | SysML v2 basis |
+|---|---|---|
+| Requirement decomposition: branching factor and depth per requirement tree | Whether top-level requirements are broken down, and how unevenly | Nested and composed requirements, `#derivation` connections |
+| Stakeholder coverage: share of requirements and use cases connected to a stakeholder or actor | Whether each need has an owner | `stakeholder` members of requirements and concerns, `frame concern`, `actor` members of use cases |
+| Satisfaction and verification coverage | Whether requirements are allocated to design and to verification | `satisfy`, `verify`; the `verify` command's verdicts |
+| Open status | How much of the model is marked unresolved | `ModelingMetadata::StatusInfo` values TBD, TBR, and TBC |
+| Model findings | Hygiene of the text | Counts of `check` and `lint` findings by severity |
+
+The adopter refers to user stories. SysML v2 has no user story element; the nearest constructs are a use case with an actor and a requirement with a stakeholder. Which of the two represents a user story is a profile decision, and the stakeholder coverage measure depends on it.
 
 Spike 1 (issue #2, step 4) writes five thread queries before defining the projection. Taking those five queries from the traceability matrix and the gap analysis makes the spike measure the projection against the queries the adopter will run.
 
@@ -98,20 +114,22 @@ A probe model was checked with sysml-toolkit 0.10.2 at commit `821221767c3c56cb1
 | Step | Work | Depends on | Delivers to the adopter |
 |---|---|---|---|
 | 1 | Spike 1, with the step 4 queries taken from C4 | Nothing; issue #1 data improves steps 6 and 7 | Evidence for OQ2, OQ4, OQ6, OQ9, and OQ10 |
-| 2 | Profile, starting with the requirement stereotype, the trace metadata, and the source passage link | Step 1, OQ12 | The authoring syntax for C3 |
+| 2 | Profile, starting with the requirement stereotype, the trace metadata, and the representation of user stories | Step 1 | The authoring syntax for C3 |
 | 3 | Derivation of the normative graph and the projection | Steps 1 and 2 | The graphs C4 queries |
 | 4 | Traceability matrix and gap analysis at tier 0 | Step 3 | The first C4 reports, from a git checkout |
 | 5 | Agent tool surface and requirement extraction | Step 2 | C1, and the capture half of C3 |
-| 6 | Issue adapters for Jira and GitLab | Step 3, OQ13 | Issue state in the C4 reports |
-| 7 | Architecture maturity report | Steps 4 and 6, and the adopter's definition | C4 complete |
-| 8 | Tool interoperability: PlantUML views in CI, then the Flexo mirror | Step 3 for views, OQ2 for the mirror | C2 |
+| 6 | Issue adapters for Jira and GitLab, reading issue state only | Step 3, OQ13 | Issue state in the C4 reports |
+| 7 | Maturity query registry with the first measures | Step 4 | C4 complete in its first form |
+| 8 | Kotar round trip, in which a model edited in Kotar passes Weft's checks and keeps its short names and metadata | Steps 2 and 3, OQ11 | C2 |
 
 Reports come before the agent surface because the reports define what the projection must answer, and an agent that writes a model before the profile exists produces text that a later profile change invalidates.
 
-## Questions for the adopter
+## Answers from the adopter
 
-1. Which SysML tools are used for visualization, and does "editing" mean graphical editing in such a tool? A yes moves tier 2 into scope (OQ11).
-2. Which issue systems hold the work (Jira Cloud, Jira Data Center, GitLab), and should Weft create issues from requirements or only record keys that people enter?
-3. In which formats do source documents arrive (Word, PDF, ReqIF exported from a requirements tool, spreadsheets)?
-4. Which link types are in use today, and which of them does the adopter's process treat as distinct (in particular trace and refine)?
-5. What does the adopter mean by architecture maturity, and in which format are reports delivered (HTML, a spreadsheet, a document)?
+| Question | Answer | Effect on this plan |
+|---|---|---|
+| Which tools are used, and does editing mean graphical editing? | Graphical editing as well as viewing, in Starforge Kotar | C2 rests on Kotar committing textual notation to git (OQ11) |
+| Which issue systems, and should Weft create issues? | Record links only; issue creation may be offered to other adopters through MCP | Issue adapters read state and never write (OQ13) |
+| In which formats do source documents arrive? | Requirement text arrives in the prompt | Source passage links deferred (OQ12) |
+| Which link types are in use? | Not yet answered | The link-type table stands as proposed |
+| What is architecture maturity? | Open; a loose set of queries at first, for example stakeholder connections of user stories and requirement branching factors, refined over time | Maturity is a query registry (C4) |
