@@ -17,6 +17,17 @@ The OMG pilot implementation is the reference implementation and runs on Java an
 
 Weft uses sysml-toolkit, pinned to a specific release, through its Python bindings for in-process work and through its CLI in CI.
 
+The pins are the following.
+
+| Dependency | Pin |
+|---|---|
+| sysml-toolkit | Commit `821221767c3c56cb1ebe7da22666197a47c9c645`, release 0.10.2 |
+| SysML-v2-Release, the standard library the toolkit vendors as the `spec-refs/SysML-v2-Release` submodule | Commit `de1070ae8e79c21532b8004fc663d47b35d0e9fa` |
+
+Changing either pin is a change to this decision, and the versions table in STATUS.md records the new hash.
+
+Weft consumes element identifiers under scheme 2, the toolkit's legacy lowering (`GraphFormat::LegacyV2`). The toolkit's `IDS.md` at the pinned commit defines scheme 2 as the default for every existing constructor, and scheme 3 (`GraphFormat::CanonicalV3`, canonical lowering) as an opt-in. A Rust client selects scheme 3 with `Model::with_graph_format` or `Session::from_sources_with_graph_format` before it loads sources. The Python bindings in `crates/sysmlv2-py` expose no graph-format selection at the pinned commit, so a Weft process that uses them receives scheme 2 identifiers. A move to scheme 3 changes the identifiers of the operands that canonical lowering wraps and of their descendants, and is a graph-contract migration under AGENTS.md rule 3.
+
 ## Consequences
 
 Model text that passes Weft's checks is portable to any implementation that follows the SysML v2 grammar, because the toolkit rejects the OpenSysML-only constructs.

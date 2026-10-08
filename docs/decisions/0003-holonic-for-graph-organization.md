@@ -13,6 +13,8 @@ Weft produces several graphs from each model version (normative graph, projectio
 
 Weft organizes its graphs as holons using holonic.
 
+Until holonic 0.9.0 is released, Weft pins holonic `main` at commit `25d1c841936ff96ab0adbb644e076939f44829dd`, the merge of [zwelz3/holonic#54](https://github.com/zwelz3/holonic/pull/54) that carries the fixes for #30 and #50. Commit `d8d1758`, at which holonic was first reviewed, precedes that merge and lacks both fixes. Weft moves to the 0.9.0 release from PyPI once it is published, and the pin is removed from this record then.
+
 | Holon layer | Content for one model version |
 |---|---|
 | Interior | Normative graph; exported ontology as a second interior graph |
