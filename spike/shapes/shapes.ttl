@@ -1,0 +1,119 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/BearerKind> a sh:NodeShape ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/BearerKind> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/Component> a sh:NodeShape ;
+    sh:property <https://weft.ghostsystems.ai/spike1/pump-library/property/Component_bearer-shape> ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/Component> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/Controller> a sh:NodeShape ;
+    sh:property <https://weft.ghostsystems.ai/spike1/pump-library/property/Component_bearer-shape>,
+        <https://weft.ghostsystems.ai/spike1/pump-library/property/Controller_dataPort-shape> ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/Controller> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/DataLink> a sh:NodeShape ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/DataLink> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/Enclosure> a sh:NodeShape ;
+    sh:property <https://weft.ghostsystems.ai/spike1/pump-library/property/Component_bearer-shape> ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/Enclosure> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/Interface> a sh:NodeShape ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/Interface> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/MaxPressureDef> a sh:NodeShape ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/MaxPressureDef> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/MonitorPressure> a sh:NodeShape ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/MonitorPressure> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/PowerPort> a sh:NodeShape ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/PowerPort> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/PressureSensor> a sh:NodeShape ;
+    sh:property <https://weft.ghostsystems.ai/spike1/pump-library/property/Component_bearer-shape> ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/PressureSensor> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/Process> a sh:NodeShape ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/Process> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/Pump> a sh:NodeShape ;
+    sh:property <https://weft.ghostsystems.ai/spike1/pump-library/property/Component_bearer-shape>,
+        <https://weft.ghostsystems.ai/spike1/pump-library/property/Pump_powerPort-shape> ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/Pump> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/PumpSystem> a sh:NodeShape ;
+    sh:property <https://weft.ghostsystems.ai/spike1/pump-library/property/Component_bearer-shape>,
+        <https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_controller-shape>,
+        <https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_dataLink-shape>,
+        <https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_enclosure-shape>,
+        <https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_powerIn-shape>,
+        <https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_pump-shape>,
+        <https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_sensor-shape> ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/PumpSystem> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/PumpSystemAcceptance> a sh:NodeShape ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/PumpSystemAcceptance> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/ResponseTimeDef> a sh:NodeShape ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/ResponseTimeDef> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/shape/~PowerPort> a sh:NodeShape ;
+    sh:targetClass <https://weft.ghostsystems.ai/spike1/pump-library/class/~PowerPort> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/property/Controller_dataPort-shape> sh:class <https://weft.ghostsystems.ai/spike1/pump-library/class/DataLink> ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path <https://weft.ghostsystems.ai/spike1/pump-library/property/Controller_dataPort> ;
+    sh:severity sh:Violation .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_controller-shape> sh:class <https://weft.ghostsystems.ai/spike1/pump-library/class/Controller> ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path <https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_controller> ;
+    sh:severity sh:Violation .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_dataLink-shape> sh:class <https://weft.ghostsystems.ai/spike1/pump-library/class/DataLink> ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path <https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_dataLink> ;
+    sh:severity sh:Violation .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_enclosure-shape> sh:class <https://weft.ghostsystems.ai/spike1/pump-library/class/Enclosure> ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path <https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_enclosure> ;
+    sh:severity sh:Violation .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_powerIn-shape> sh:class <https://weft.ghostsystems.ai/spike1/pump-library/class/PowerPort> ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path <https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_powerIn> ;
+    sh:severity sh:Violation .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_pump-shape> sh:class <https://weft.ghostsystems.ai/spike1/pump-library/class/Pump> ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path <https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_pump> ;
+    sh:severity sh:Violation .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_sensor-shape> sh:class <https://weft.ghostsystems.ai/spike1/pump-library/class/PressureSensor> ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path <https://weft.ghostsystems.ai/spike1/pump-library/property/PumpSystem_sensor> ;
+    sh:severity sh:Violation .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/property/Pump_powerPort-shape> sh:class <https://weft.ghostsystems.ai/spike1/pump-library/class/PowerPort> ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path <https://weft.ghostsystems.ai/spike1/pump-library/property/Pump_powerPort> ;
+    sh:severity sh:Violation .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/property/Component_bearer-shape> sh:class <https://weft.ghostsystems.ai/spike1/pump-library/class/BearerKind> ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:path <https://weft.ghostsystems.ai/spike1/pump-library/property/Component_bearer> ;
+    sh:severity sh:Violation .
+

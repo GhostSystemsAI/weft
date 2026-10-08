@@ -1,0 +1,104 @@
+@prefix ns1: <https://weft.ghostsystems.ai/spike1/pump-library/property/> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/CTRL-05> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Controller> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/CTRL-06> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Controller> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/information>,
+        <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/ENCL-04> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Enclosure> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/ENCL-05> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Enclosure> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/ENCL-06> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Enclosure> ;
+    ns1:Component_bearer "composite" .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/PUMP-04> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Pump> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/PUMP-05> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Pump> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/PUMP-06> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Pump> ;
+    ns1:Component_bearer "steel" .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/SENS-05> a <https://weft.ghostsystems.ai/spike1/pump-library/class/PressureSensor> ;
+    ns1:Component_bearer "metal" .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/SENS-06> a <https://weft.ghostsystems.ai/spike1/pump-library/class/PressureSensor> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/information>,
+        <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/SYS-01> a <https://weft.ghostsystems.ai/spike1/pump-library/class/PumpSystem> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> ;
+    ns1:PumpSystem_controller <https://weft.ghostsystems.ai/spike1/pump-library/instance/CTRL-01> ;
+    ns1:PumpSystem_enclosure <https://weft.ghostsystems.ai/spike1/pump-library/instance/ENCL-01> ;
+    ns1:PumpSystem_pump <https://weft.ghostsystems.ai/spike1/pump-library/instance/PUMP-01> ;
+    ns1:PumpSystem_sensor <https://weft.ghostsystems.ai/spike1/pump-library/instance/SENS-01> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/SYS-02> a <https://weft.ghostsystems.ai/spike1/pump-library/class/PumpSystem> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> ;
+    ns1:PumpSystem_controller <https://weft.ghostsystems.ai/spike1/pump-library/instance/CTRL-02> ;
+    ns1:PumpSystem_enclosure <https://weft.ghostsystems.ai/spike1/pump-library/instance/ENCL-02> ;
+    ns1:PumpSystem_pump <https://weft.ghostsystems.ai/spike1/pump-library/instance/PUMP-02> ;
+    ns1:PumpSystem_sensor <https://weft.ghostsystems.ai/spike1/pump-library/instance/SENS-02> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/SYS-03> a <https://weft.ghostsystems.ai/spike1/pump-library/class/PumpSystem> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> ;
+    ns1:PumpSystem_controller <https://weft.ghostsystems.ai/spike1/pump-library/instance/CTRL-03> ;
+    ns1:PumpSystem_enclosure <https://weft.ghostsystems.ai/spike1/pump-library/instance/ENCL-03> ;
+    ns1:PumpSystem_pump <https://weft.ghostsystems.ai/spike1/pump-library/instance/PUMP-99> ;
+    ns1:PumpSystem_sensor <https://weft.ghostsystems.ai/spike1/pump-library/instance/SENS-03> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/SYS-04> a <https://weft.ghostsystems.ai/spike1/pump-library/class/PumpSystem> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> ;
+    ns1:PumpSystem_controller <https://weft.ghostsystems.ai/spike1/pump-library/instance/CTRL-04> ;
+    ns1:PumpSystem_pump <https://weft.ghostsystems.ai/spike1/pump-library/instance/PUMP-03> ;
+    ns1:PumpSystem_sensor <https://weft.ghostsystems.ai/spike1/pump-library/instance/SENS-04> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/CTRL-01> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Controller> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/information> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/CTRL-02> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Controller> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/information> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/CTRL-03> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Controller> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/information> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/CTRL-04> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Controller> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/information> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/ENCL-01> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Enclosure> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/ENCL-02> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Enclosure> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/ENCL-03> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Enclosure> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/PUMP-01> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Pump> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/PUMP-02> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Pump> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/PUMP-03> a <https://weft.ghostsystems.ai/spike1/pump-library/class/Pump> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/SENS-01> a <https://weft.ghostsystems.ai/spike1/pump-library/class/PressureSensor> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/SENS-02> a <https://weft.ghostsystems.ai/spike1/pump-library/class/PressureSensor> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/SENS-03> a <https://weft.ghostsystems.ai/spike1/pump-library/class/PressureSensor> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/instance/SENS-04> a <https://weft.ghostsystems.ai/spike1/pump-library/class/PressureSensor> ;
+    ns1:Component_bearer <https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/information> a <https://weft.ghostsystems.ai/spike1/pump-library/class/BearerKind> .
+
+<https://weft.ghostsystems.ai/spike1/pump-library/individual/BearerKind/material> a <https://weft.ghostsystems.ai/spike1/pump-library/class/BearerKind> .
+
