@@ -8,7 +8,7 @@ Invariants for any session on this repository. Read [STATUS.md](STATUS.md) first
 
 2. **Natural language is not stored as specification.** Prompts that produce or edit the model are not records. The reasons behind a modeling choice go into a decision record linked to the elements it concerns, because the prompt that carried them is not kept.
 
-3. **The graph contract is a migration surface.** The IRIs Weft mints, the triples it emits, and each property's range are a data migration for every user when they change, independent of the version number. A change to emitted triples is not an ordinary change because the version is pre-1.0.
+3. **The graph contract is a migration surface.** The IRIs Weft mints, the triples it emits, and each property's range are a data migration for every user when they change, independent of the version number. A change to emitted triples is not an ordinary change even though the version is pre-1.0.
 
 4. **IRIs are minted only into namespaces their owner controls.** A project's elements are minted under that project's namespace, and a library's classes under that library's namespace. Weft never invents a base on a user's behalf, and thread links never point at an identifier minted into a shared namespace, such as `urn:sysmlv2:element:`.
 

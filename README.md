@@ -21,7 +21,7 @@ Links to external artifacts use the OSLC link vocabulary (`oslc_rm:implementedBy
 
 ## Git for everyone, Flexo MMS for those who adopt it
 
-Git is the record. Every core feature works on a git checkout without a server, and a team that runs [Flexo MMS](https://github.com/Open-MBEE) gains shared, versioned, multi-project querying from a one-way mirror of its git history. [docs/decisions/0001-git-is-the-record.md](docs/decisions/0001-git-is-the-record.md) states the tiers and the reasons for them.
+Git is the record. Every core feature works on a git checkout without a server, and a team that runs [Flexo MMS](https://github.com/Open-MBEE/flexo-mms-layer1-service) gains shared, versioned, multi-project querying from a one-way mirror of its git history. [docs/decisions/0001-git-is-the-record.md](docs/decisions/0001-git-is-the-record.md) states the tiers and the reasons for them.
 
 ## Related projects
 
