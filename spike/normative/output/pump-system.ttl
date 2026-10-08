@@ -1135,6 +1135,7 @@
     ns1:memberElement <https://weft.ghostsystems.ai/spike1/pump-system/element/fbca9eb9-88c4-5b6e-85aa-51519e340134> ;
     ns1:memberElementId "fbca9eb9-88c4-5b6e-85aa-51519e340134" ;
     ns1:memberName "pumpSystemUnderTest" ;
+    ns1:memberShortName "CMP-SYS" ;
     ns1:membershipOwningNamespace <https://weft.ghostsystems.ai/spike1/pump-system/element/134001a0-968b-582d-b2ad-968cd5753cdd> ;
     ns1:owningRelatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/134001a0-968b-582d-b2ad-968cd5753cdd> ;
     ns1:relatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/134001a0-968b-582d-b2ad-968cd5753cdd>,
@@ -1341,6 +1342,7 @@
     ns1:memberElement <https://weft.ghostsystems.ai/spike1/pump-system/element/fbca9eb9-88c4-5b6e-85aa-51519e340134> ;
     ns1:memberElementId "fbca9eb9-88c4-5b6e-85aa-51519e340134" ;
     ns1:memberName "pumpSystemUnderTest" ;
+    ns1:memberShortName "CMP-SYS" ;
     ns1:membershipOwningNamespace <https://weft.ghostsystems.ai/spike1/pump-system/element/f06984c6-f67c-5cd3-9858-7d1eeeed14a3> ;
     ns1:owningRelatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/f06984c6-f67c-5cd3-9858-7d1eeeed14a3> ;
     ns1:relatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/f06984c6-f67c-5cd3-9858-7d1eeeed14a3>,
@@ -1547,6 +1549,7 @@
     ns1:memberElement <https://weft.ghostsystems.ai/spike1/pump-system/element/fbca9eb9-88c4-5b6e-85aa-51519e340134> ;
     ns1:memberElementId "fbca9eb9-88c4-5b6e-85aa-51519e340134" ;
     ns1:memberName "pumpSystemUnderTest" ;
+    ns1:memberShortName "CMP-SYS" ;
     ns1:membershipOwningNamespace <https://weft.ghostsystems.ai/spike1/pump-system/element/2419d819-b796-59fe-bbc5-3dcbb7a1ff91> ;
     ns1:owningRelatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/2419d819-b796-59fe-bbc5-3dcbb7a1ff91> ;
     ns1:relatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/2419d819-b796-59fe-bbc5-3dcbb7a1ff91>,
@@ -2071,6 +2074,7 @@
     ns1:memberElement <https://weft.ghostsystems.ai/spike1/pump-system/element/fbca9eb9-88c4-5b6e-85aa-51519e340134> ;
     ns1:memberElementId "fbca9eb9-88c4-5b6e-85aa-51519e340134" ;
     ns1:memberName "pumpSystemUnderTest" ;
+    ns1:memberShortName "CMP-SYS" ;
     ns1:membershipOwningNamespace <https://weft.ghostsystems.ai/spike1/pump-system/element/92ffe82d-b8d4-55e7-b9f7-725035703a1e> ;
     ns1:owningRelatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/92ffe82d-b8d4-55e7-b9f7-725035703a1e> ;
     ns1:relatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/92ffe82d-b8d4-55e7-b9f7-725035703a1e>,
@@ -4796,10 +4800,12 @@
     ns1:memberElement <https://weft.ghostsystems.ai/spike1/pump-system/element/fbca9eb9-88c4-5b6e-85aa-51519e340134> ;
     ns1:memberElementId "fbca9eb9-88c4-5b6e-85aa-51519e340134" ;
     ns1:memberName "pumpSystemUnderTest" ;
+    ns1:memberShortName "CMP-SYS" ;
     ns1:membershipOwningNamespace <https://weft.ghostsystems.ai/spike1/pump-system/element/8743fad4-1088-58dd-91f4-4e2bcb482a86> ;
     ns1:ownedMemberElement <https://weft.ghostsystems.ai/spike1/pump-system/element/fbca9eb9-88c4-5b6e-85aa-51519e340134> ;
     ns1:ownedMemberElementId "fbca9eb9-88c4-5b6e-85aa-51519e340134" ;
     ns1:ownedMemberName "pumpSystemUnderTest" ;
+    ns1:ownedMemberShortName "CMP-SYS" ;
     ns1:ownedRelatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/fbca9eb9-88c4-5b6e-85aa-51519e340134> ;
     ns1:owningRelatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/8743fad4-1088-58dd-91f4-4e2bcb482a86> ;
     ns1:relatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/8743fad4-1088-58dd-91f4-4e2bcb482a86>,
@@ -5360,11 +5366,13 @@
     ns1:memberElement <https://weft.ghostsystems.ai/spike1/pump-system/element/3b2f730d-b6cb-555f-856f-e8b91191d605> ;
     ns1:memberElementId "3b2f730d-b6cb-555f-856f-e8b91191d605" ;
     ns1:memberName "controller" ;
+    ns1:memberShortName "CMP-CTRL" ;
     ns1:membershipOwningNamespace <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
     ns1:ownedMemberElement <https://weft.ghostsystems.ai/spike1/pump-system/element/3b2f730d-b6cb-555f-856f-e8b91191d605> ;
     ns1:ownedMemberElementId "3b2f730d-b6cb-555f-856f-e8b91191d605" ;
     ns1:ownedMemberFeature <https://weft.ghostsystems.ai/spike1/pump-system/element/3b2f730d-b6cb-555f-856f-e8b91191d605> ;
     ns1:ownedMemberName "controller" ;
+    ns1:ownedMemberShortName "CMP-CTRL" ;
     ns1:ownedRelatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/3b2f730d-b6cb-555f-856f-e8b91191d605> ;
     ns1:owningRelatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
     ns1:owningType <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
@@ -5404,11 +5412,13 @@
     ns1:memberElement <https://weft.ghostsystems.ai/spike1/pump-system/element/d3ddacbe-255b-5031-aa51-0f77feecc29f> ;
     ns1:memberElementId "d3ddacbe-255b-5031-aa51-0f77feecc29f" ;
     ns1:memberName "sensor" ;
+    ns1:memberShortName "CMP-SENS" ;
     ns1:membershipOwningNamespace <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
     ns1:ownedMemberElement <https://weft.ghostsystems.ai/spike1/pump-system/element/d3ddacbe-255b-5031-aa51-0f77feecc29f> ;
     ns1:ownedMemberElementId "d3ddacbe-255b-5031-aa51-0f77feecc29f" ;
     ns1:ownedMemberFeature <https://weft.ghostsystems.ai/spike1/pump-system/element/d3ddacbe-255b-5031-aa51-0f77feecc29f> ;
     ns1:ownedMemberName "sensor" ;
+    ns1:ownedMemberShortName "CMP-SENS" ;
     ns1:ownedRelatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/d3ddacbe-255b-5031-aa51-0f77feecc29f> ;
     ns1:owningRelatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
     ns1:owningType <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
@@ -5661,11 +5671,13 @@
     ns1:memberElement <https://weft.ghostsystems.ai/spike1/pump-system/element/e41a38ec-8ae3-5042-b336-30b0a6fbad86> ;
     ns1:memberElementId "e41a38ec-8ae3-5042-b336-30b0a6fbad86" ;
     ns1:memberName "enclosure" ;
+    ns1:memberShortName "CMP-ENCL" ;
     ns1:membershipOwningNamespace <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
     ns1:ownedMemberElement <https://weft.ghostsystems.ai/spike1/pump-system/element/e41a38ec-8ae3-5042-b336-30b0a6fbad86> ;
     ns1:ownedMemberElementId "e41a38ec-8ae3-5042-b336-30b0a6fbad86" ;
     ns1:ownedMemberFeature <https://weft.ghostsystems.ai/spike1/pump-system/element/e41a38ec-8ae3-5042-b336-30b0a6fbad86> ;
     ns1:ownedMemberName "enclosure" ;
+    ns1:ownedMemberShortName "CMP-ENCL" ;
     ns1:ownedRelatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/e41a38ec-8ae3-5042-b336-30b0a6fbad86> ;
     ns1:owningRelatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
     ns1:owningType <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
@@ -5880,11 +5892,13 @@
     ns1:memberElement <https://weft.ghostsystems.ai/spike1/pump-system/element/2d2eff2a-437d-56ca-a032-60986d9f0e15> ;
     ns1:memberElementId "2d2eff2a-437d-56ca-a032-60986d9f0e15" ;
     ns1:memberName "pump" ;
+    ns1:memberShortName "CMP-PUMP" ;
     ns1:membershipOwningNamespace <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
     ns1:ownedMemberElement <https://weft.ghostsystems.ai/spike1/pump-system/element/2d2eff2a-437d-56ca-a032-60986d9f0e15> ;
     ns1:ownedMemberElementId "2d2eff2a-437d-56ca-a032-60986d9f0e15" ;
     ns1:ownedMemberFeature <https://weft.ghostsystems.ai/spike1/pump-system/element/2d2eff2a-437d-56ca-a032-60986d9f0e15> ;
     ns1:ownedMemberName "pump" ;
+    ns1:ownedMemberShortName "CMP-PUMP" ;
     ns1:ownedRelatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/2d2eff2a-437d-56ca-a032-60986d9f0e15> ;
     ns1:owningRelatedElement <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
     ns1:owningType <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
@@ -7654,6 +7668,7 @@
 
 <https://weft.ghostsystems.ai/spike1/pump-system/element/d3ddacbe-255b-5031-aa51-0f77feecc29f> a <https://www.omg.org/spec/SysML/20250201/PartUsage> ;
     ns1:declaredName "sensor" ;
+    ns1:declaredShortName "CMP-SENS" ;
     ns1:definition <https://weft.ghostsystems.ai/spike1/pump-system/element/64046cda-004b-58a7-bb1a-d32cd11464e4> ;
     ns1:featureTarget <https://weft.ghostsystems.ai/spike1/pump-system/element/d3ddacbe-255b-5031-aa51-0f77feecc29f> ;
     ns1:isAbstract false ;
@@ -7688,6 +7703,7 @@
     ns1:owningType <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
     ns1:partDefinition <https://weft.ghostsystems.ai/spike1/pump-system/element/64046cda-004b-58a7-bb1a-d32cd11464e4> ;
     ns1:qualifiedName "PumpSystemModel::PumpSystem::sensor" ;
+    ns1:shortName "CMP-SENS" ;
     ns1:type <https://weft.ghostsystems.ai/spike1/pump-system/element/64046cda-004b-58a7-bb1a-d32cd11464e4> .
 
 <https://weft.ghostsystems.ai/spike1/pump-system/element/039a5713-ddc8-5a2b-9e50-e4372288d791> a <https://www.omg.org/spec/SysML/20250201/MetadataUsage> ;
@@ -8901,6 +8917,7 @@
 
 <https://weft.ghostsystems.ai/spike1/pump-system/element/2d2eff2a-437d-56ca-a032-60986d9f0e15> a <https://www.omg.org/spec/SysML/20250201/PartUsage> ;
     ns1:declaredName "pump" ;
+    ns1:declaredShortName "CMP-PUMP" ;
     ns1:definition <https://weft.ghostsystems.ai/spike1/pump-system/element/1c9ebf30-45bf-5253-88c4-c08a686b7d2a> ;
     ns1:featureTarget <https://weft.ghostsystems.ai/spike1/pump-system/element/2d2eff2a-437d-56ca-a032-60986d9f0e15> ;
     ns1:isAbstract false ;
@@ -8935,10 +8952,12 @@
     ns1:owningType <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
     ns1:partDefinition <https://weft.ghostsystems.ai/spike1/pump-system/element/1c9ebf30-45bf-5253-88c4-c08a686b7d2a> ;
     ns1:qualifiedName "PumpSystemModel::PumpSystem::pump" ;
+    ns1:shortName "CMP-PUMP" ;
     ns1:type <https://weft.ghostsystems.ai/spike1/pump-system/element/1c9ebf30-45bf-5253-88c4-c08a686b7d2a> .
 
 <https://weft.ghostsystems.ai/spike1/pump-system/element/3b2f730d-b6cb-555f-856f-e8b91191d605> a <https://www.omg.org/spec/SysML/20250201/PartUsage> ;
     ns1:declaredName "controller" ;
+    ns1:declaredShortName "CMP-CTRL" ;
     ns1:definition <https://weft.ghostsystems.ai/spike1/pump-system/element/194e7ca5-b0f1-5bcd-9b81-dffaa7fec042> ;
     ns1:featureTarget <https://weft.ghostsystems.ai/spike1/pump-system/element/3b2f730d-b6cb-555f-856f-e8b91191d605> ;
     ns1:isAbstract false ;
@@ -8973,10 +8992,12 @@
     ns1:owningType <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
     ns1:partDefinition <https://weft.ghostsystems.ai/spike1/pump-system/element/194e7ca5-b0f1-5bcd-9b81-dffaa7fec042> ;
     ns1:qualifiedName "PumpSystemModel::PumpSystem::controller" ;
+    ns1:shortName "CMP-CTRL" ;
     ns1:type <https://weft.ghostsystems.ai/spike1/pump-system/element/194e7ca5-b0f1-5bcd-9b81-dffaa7fec042> .
 
 <https://weft.ghostsystems.ai/spike1/pump-system/element/e41a38ec-8ae3-5042-b336-30b0a6fbad86> a <https://www.omg.org/spec/SysML/20250201/PartUsage> ;
     ns1:declaredName "enclosure" ;
+    ns1:declaredShortName "CMP-ENCL" ;
     ns1:definition <https://weft.ghostsystems.ai/spike1/pump-system/element/605a0497-2c17-5c97-baed-6dd204ed00de> ;
     ns1:featureTarget <https://weft.ghostsystems.ai/spike1/pump-system/element/e41a38ec-8ae3-5042-b336-30b0a6fbad86> ;
     ns1:isAbstract false ;
@@ -9011,6 +9032,7 @@
     ns1:owningType <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
     ns1:partDefinition <https://weft.ghostsystems.ai/spike1/pump-system/element/605a0497-2c17-5c97-baed-6dd204ed00de> ;
     ns1:qualifiedName "PumpSystemModel::PumpSystem::enclosure" ;
+    ns1:shortName "CMP-ENCL" ;
     ns1:type <https://weft.ghostsystems.ai/spike1/pump-system/element/605a0497-2c17-5c97-baed-6dd204ed00de> .
 
 <https://weft.ghostsystems.ai/spike1/pump-system/element/134001a0-968b-582d-b2ad-968cd5753cdd> a <https://www.omg.org/spec/SysML/20250201/FeatureReferenceExpression> ;
@@ -11468,6 +11490,7 @@
 
 <https://weft.ghostsystems.ai/spike1/pump-system/element/fbca9eb9-88c4-5b6e-85aa-51519e340134> a <https://www.omg.org/spec/SysML/20250201/PartUsage> ;
     ns1:declaredName "pumpSystemUnderTest" ;
+    ns1:declaredShortName "CMP-SYS" ;
     ns1:definition <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
     ns1:featureTarget <https://weft.ghostsystems.ai/spike1/pump-system/element/fbca9eb9-88c4-5b6e-85aa-51519e340134> ;
     ns1:isAbstract false ;
@@ -11499,6 +11522,7 @@
     ns1:owningRelationship <https://weft.ghostsystems.ai/spike1/pump-system/element/e2cb2719-a158-5c70-9c20-075cba61a014> ;
     ns1:partDefinition <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> ;
     ns1:qualifiedName "PumpSystemModel::pumpSystemUnderTest" ;
+    ns1:shortName "CMP-SYS" ;
     ns1:type <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> .
 
 <https://weft.ghostsystems.ai/spike1/pump-system/element/1b63d12d-db85-59a6-aafa-ddfd625b77d8> a <https://www.omg.org/spec/SysML/20250201/PartDefinition> ;

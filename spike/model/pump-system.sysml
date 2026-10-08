@@ -18,10 +18,10 @@ package PumpSystemModel {
 	part def PumpSystem {
 		@Component { bearer = BearerKind::material; }
 
-		part pump : Pump;
-		part controller : Controller;
-		part sensor : PressureSensor;
-		part enclosure : Enclosure;
+		part <'CMP-PUMP'> pump : Pump;
+		part <'CMP-CTRL'> controller : Controller;
+		part <'CMP-SENS'> sensor : PressureSensor;
+		part <'CMP-ENCL'> enclosure : Enclosure;
 
 		port powerIn : PowerPort;
 		interface dataLink : DataLink;
@@ -64,7 +64,7 @@ package PumpSystemModel {
 		}
 	}
 
-	part pumpSystemUnderTest : PumpSystem;
+	part <'CMP-SYS'> pumpSystemUnderTest : PumpSystem;
 
 	verification pumpSystemAcceptanceTest : PumpSystemAcceptance {
 		subject testSystem : PumpSystem = pumpSystemUnderTest;

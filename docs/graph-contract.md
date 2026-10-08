@@ -1,6 +1,6 @@
 # Graph contract
 
-Status: skeleton; spike 1 fills it.
+Status: draft from spike 1
 
 This document states what Weft emits from a model: the IRIs it mints, the triples it derives, and the range of each property. Every change to it is a data migration for every user (AGENTS.md rule 3).
 
@@ -37,8 +37,24 @@ An index-property representation (`sysml:index` on a reified link) and holonic's
 
 ## Projection vocabulary
 
-The projection's terms and namespace are fixed here, and the placeholder `proj:` terms in [queries/](../queries/) are replaced by them (OQ10).
+The projection's terms and namespace are fixed here, and the placeholder `proj:` terms in [queries/](../queries/) are replaced by them (OQ10). Namespace: `https://weft.ghostsystems.ai/thread/0.1.0/`, prefix `proj:`. The full term table, with each term's range and the normative-graph pattern it derives from, is in `spike/projection/vocabulary.md`; it is reproduced here because this section is the deliverable the thread queries depend on.
+
+| Term | Kind | Range |
+|---|---|---|
+| `proj:Requirement` | Class | |
+| `proj:Component` | Class | |
+| `proj:shortName` | Datatype property | `xsd:string` |
+| `proj:SatisfyClaim` | Class | |
+| `proj:requirement` | Object property | `proj:Requirement` |
+| `proj:satisfiedBy` | Object property | `proj:Component` in this spike's model; the toolkit does not itself restrict a `satisfy` claim's satisfying element to a component |
+| `proj:verdict` | Datatype property | `xsd:string`, one of `"satisfied"`, `"violated"`, `"undecided"` |
+| `proj:verifiedBy` | Object property | `proj:VerificationCase` |
+| `proj:VerificationCase` | Class | |
+
+Six of these seven terms (every one but `proj:verdict`) derive from the normative graph by one SPARQL CONSTRUCT query per term group (`spike/projection/construct-*.rq`), run with `rdflib`. `proj:verdict` does not: `sysmlv2 verify` at 0.10.2 has no `--format json` option (unlike `check` and `lint`), so it is not a graph pattern over the JSON export: `spike/projection/project.py` runs `verify` and parses its text report, matching each line to the `proj:SatisfyClaim` its requirement and satisfying-element names identify. A production derivation should ask the toolkit for a structured verify report rather than parse CLI text; this is carried forward against OQ6.
+
+Running the five queries in [queries/](../queries/) against the pump system's projected graph produced the expected row counts on every query: 6 satisfying-element rows (all verdict `undecided`, because the spike's requirements carry doc text rather than a bound constraint), 2 verified-by rows, 0 unsatisfied requirements, 4 unverified requirements, 1 orphan component (the pressure sensor, the one component no requirement's `satisfy` claim names). Full rows are in `spike/projection/results.md` and the method in `spike/projection/QUESTIONS.md` (M5, step 8).
 
 ## Versioning of the contract
 
-The contract carries its own version, and a change to emitted triples increments it regardless of the package version (AGENTS.md rule 3).
+The contract carries its own version, and a change to emitted triples increments it regardless of the package version (AGENTS.md rule 3). Version: **0.1.0**, this spike's draft. 0.1.0 covers the IRI minting scheme, the toolkit-JSON-to-RDF mapping, the ordered-property representation for `ownedRelationship`, and the seven-term projection vocabulary above; it does not yet cover the ontology export (step 5) or shape derivation (step 6) mappings, which are recorded separately in `spike/export/` and `spike/shapes/` until a later revision folds them into a numbered contract section.

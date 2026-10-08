@@ -30,6 +30,11 @@ mirroring decision 0007) and the `BearerKind` enumeration.
 - 1 verification case (`PumpSystemAcceptance` def, `pumpSystemAcceptanceTest` usage) with a
   `verify` relationship for each of the two requirements it covers (`MaxPressure`, `ResponseTime`).
 
+Step 4 added declared short names to the five component usages (`CMP-SYS`, `CMP-PUMP`, `CMP-CTRL`,
+`CMP-SENS`, `CMP-ENCL`): decision 0005 requires a short name on an element carrying the Component
+stereotype, and the orphan-components query needs one to report. `check --strict` still passes
+after the addition; the command above was re-run to confirm it.
+
 ## Public model
 
 `sysml/src/examples/Geometry Examples/SimpleQuadcopter.sysml` in the SysML-v2-Release clone at

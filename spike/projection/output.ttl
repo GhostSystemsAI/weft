@@ -1,0 +1,67 @@
+@prefix ns1: <https://weft.ghostsystems.ai/thread/0.1.0/> .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/element/00ba630b-7226-54e9-b15b-d486da67679d> a ns1:SatisfyClaim ;
+    ns1:requirement <https://weft.ghostsystems.ai/spike1/pump-system/requirement/REQ-004> ;
+    ns1:satisfiedBy <https://weft.ghostsystems.ai/spike1/pump-system/element/3b2f730d-b6cb-555f-856f-e8b91191d605> ;
+    ns1:verdict "undecided" .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/element/49bb9336-60d8-55bd-8148-197da68f344e> a ns1:SatisfyClaim ;
+    ns1:requirement <https://weft.ghostsystems.ai/spike1/pump-system/requirement/REQ-005> ;
+    ns1:satisfiedBy <https://weft.ghostsystems.ai/spike1/pump-system/element/e41a38ec-8ae3-5042-b336-30b0a6fbad86> ;
+    ns1:verdict "undecided" .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/element/8ba8d341-1795-50e9-987e-c685aacd67ac> a ns1:SatisfyClaim ;
+    ns1:requirement <https://weft.ghostsystems.ai/spike1/pump-system/requirement/REQ-003> ;
+    ns1:satisfiedBy <https://weft.ghostsystems.ai/spike1/pump-system/element/2d2eff2a-437d-56ca-a032-60986d9f0e15> ;
+    ns1:verdict "undecided" .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/element/8ce3fdca-ed42-523d-a9ab-cca005aa8276> a ns1:SatisfyClaim ;
+    ns1:requirement <https://weft.ghostsystems.ai/spike1/pump-system/requirement/REQ-001> ;
+    ns1:satisfiedBy <https://weft.ghostsystems.ai/spike1/pump-system/element/fbca9eb9-88c4-5b6e-85aa-51519e340134> ;
+    ns1:verdict "undecided" .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/element/9b1c7466-c64b-5445-aa05-84b30cfa3746> a ns1:SatisfyClaim ;
+    ns1:requirement <https://weft.ghostsystems.ai/spike1/pump-system/requirement/REQ-002> ;
+    ns1:satisfiedBy <https://weft.ghostsystems.ai/spike1/pump-system/element/fbca9eb9-88c4-5b6e-85aa-51519e340134> ;
+    ns1:verdict "undecided" .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/element/d3ddacbe-255b-5031-aa51-0f77feecc29f> a ns1:Component ;
+    ns1:shortName "CMP-SENS" .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/element/dd9fee6d-390c-5823-b504-e8169aa162b7> a ns1:SatisfyClaim ;
+    ns1:requirement <https://weft.ghostsystems.ai/spike1/pump-system/requirement/REQ-006> ;
+    ns1:satisfiedBy <https://weft.ghostsystems.ai/spike1/pump-system/element/fbca9eb9-88c4-5b6e-85aa-51519e340134> ;
+    ns1:verdict "undecided" .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/element/2d2eff2a-437d-56ca-a032-60986d9f0e15> a ns1:Component ;
+    ns1:shortName "CMP-PUMP" .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/element/3b2f730d-b6cb-555f-856f-e8b91191d605> a ns1:Component ;
+    ns1:shortName "CMP-CTRL" .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/element/e41a38ec-8ae3-5042-b336-30b0a6fbad86> a ns1:Component ;
+    ns1:shortName "CMP-ENCL" .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/requirement/REQ-001> a ns1:Requirement ;
+    ns1:shortName "REQ-001" ;
+    ns1:verifiedBy <https://weft.ghostsystems.ai/spike1/pump-system/element/4767ba15-ba63-5f6a-aaf0-959b20448c4a> .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/requirement/REQ-002> a ns1:Requirement ;
+    ns1:shortName "REQ-002" ;
+    ns1:verifiedBy <https://weft.ghostsystems.ai/spike1/pump-system/element/4767ba15-ba63-5f6a-aaf0-959b20448c4a> .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/requirement/REQ-003> a ns1:Requirement ;
+    ns1:shortName "REQ-003" .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/requirement/REQ-004> a ns1:Requirement ;
+    ns1:shortName "REQ-004" .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/requirement/REQ-005> a ns1:Requirement ;
+    ns1:shortName "REQ-005" .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/requirement/REQ-006> a ns1:Requirement ;
+    ns1:shortName "REQ-006" .
+
+<https://weft.ghostsystems.ai/spike1/pump-system/element/fbca9eb9-88c4-5b6e-85aa-51519e340134> a ns1:Component ;
+    ns1:shortName "CMP-SYS" .
+

@@ -1,0 +1,23 @@
+# Term group: proj:verifiedBy. A RequirementVerificationMembership's
+# verifiedRequirement, read only where it names a requirement with a
+# declared short name, filters out the definition-level placeholder
+# memberships (the verification case definition's objective nests abstract
+# RequirementUsage placeholders that redefine to nothing yet; only the
+# usage-level objective's memberships bind a real, short-named requirement).
+# The verification case is the membership's owningType's owner, walked up
+# from the objective to the verification usage that contains it.
+PREFIX sysml: <https://www.omg.org/spec/SysML/20250201/>
+PREFIX tk: <https://weft.ghostsystems.ai/spike1/toolkit-vocab#>
+PREFIX proj: <https://weft.ghostsystems.ai/thread/0.1.0/>
+
+CONSTRUCT {
+  ?requirement proj:verifiedBy ?verificationCase .
+}
+WHERE {
+  ?membership a sysml:RequirementVerificationMembership ;
+              tk:verifiedRequirement ?requirement ;
+              tk:owningType ?objective .
+  ?requirement tk:declaredShortName ?shortName .
+  ?objective tk:owner ?verificationCase .
+  ?verificationCase a sysml:VerificationCaseUsage .
+}

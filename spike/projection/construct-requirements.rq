@@ -1,0 +1,13 @@
+# Term group: proj:Requirement, proj:shortName (on requirements).
+PREFIX sysml: <https://www.omg.org/spec/SysML/20250201/>
+PREFIX tk: <https://weft.ghostsystems.ai/spike1/toolkit-vocab#>
+PREFIX proj: <https://weft.ghostsystems.ai/thread/0.1.0/>
+
+CONSTRUCT {
+  ?req a proj:Requirement ;
+       proj:shortName ?shortName .
+}
+WHERE {
+  ?req a sysml:RequirementUsage ;
+       tk:declaredShortName ?shortName .
+}

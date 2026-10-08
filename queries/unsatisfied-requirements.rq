@@ -15,7 +15,7 @@
 #                         "satisfied", "violated", or "undecided" (literal)
 #   proj:verifiedBy       object property, Requirement -> verification case
 
-PREFIX proj: <urn:x-weft-placeholder:projection#>
+PREFIX proj: <https://weft.ghostsystems.ai/thread/0.1.0/>
 
 SELECT ?requirement ?shortName
 WHERE {

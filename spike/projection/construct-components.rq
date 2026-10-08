@@ -1,0 +1,23 @@
+# Term group: proj:Component, proj:shortName (on components). A component is
+# a usage whose type (its definition) carries the Component metadata
+# (decision 0005); the metadata attaches to the definition, so this query
+# walks usage -> type -> metadata annotation, the same usage-to-definition
+# step decision 0006's consequences note for interfaces (OQ10).
+PREFIX sysml: <https://www.omg.org/spec/SysML/20250201/>
+PREFIX tk: <https://weft.ghostsystems.ai/spike1/toolkit-vocab#>
+PREFIX proj: <https://weft.ghostsystems.ai/thread/0.1.0/>
+
+CONSTRUCT {
+  ?usage a proj:Component ;
+         proj:shortName ?shortName .
+}
+WHERE {
+  ?compDef a sysml:MetadataDefinition ;
+           tk:declaredName "Component" .
+  ?metadata a sysml:MetadataUsage ;
+            tk:type ?compDef ;
+            tk:annotatedElement ?def .
+  ?usage a sysml:PartUsage ;
+         tk:declaredShortName ?shortName ;
+         tk:type ?def .
+}

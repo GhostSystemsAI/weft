@@ -1,0 +1,7 @@
+spike/model/pump-system.sysml:101:2  <anonymous> (SatisfyRequirementUsage, satisfies PumpSystemModel::MaxPressure by pumpSystemUnderTest): undecided (the requirement has no constraint to evaluate)
+spike/model/pump-system.sysml:102:2  <anonymous> (SatisfyRequirementUsage, satisfies PumpSystemModel::ResponseTime by pumpSystemUnderTest): undecided (the requirement has no constraint to evaluate)
+spike/model/pump-system.sysml:103:2  <anonymous> (SatisfyRequirementUsage, satisfies PumpSystemModel::PowerDraw by pumpSystemUnderTest.pump): undecided (the requirement has no constraint to evaluate)
+spike/model/pump-system.sysml:104:2  <anonymous> (SatisfyRequirementUsage, satisfies PumpSystemModel::DataLatency by pumpSystemUnderTest.controller): undecided (the requirement has no constraint to evaluate)
+spike/model/pump-system.sysml:105:2  <anonymous> (SatisfyRequirementUsage, satisfies PumpSystemModel::EnclosureRating by pumpSystemUnderTest.enclosure): undecided (the requirement has no constraint to evaluate)
+spike/model/pump-system.sysml:106:2  <anonymous> (SatisfyRequirementUsage, satisfies PumpSystemModel::StartupTime by pumpSystemUnderTest): undecided (the requirement has no constraint to evaluate)
+0 satisfied, 0 violated, 6 undecided
