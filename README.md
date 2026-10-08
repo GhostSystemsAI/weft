@@ -2,7 +2,7 @@
 
 Weft connects the requirements, interfaces, and components in a SysML v2 model to the tickets, commits, tests, decision records, and records in other systems that make up the rest of an engineering digital thread. The model is kept as SysML v2 textual notation in git, and Weft derives the RDF graphs that the thread queries and validates.
 
-The project is in design. The repository holds design documents and no code.
+The project is in design. The repository holds design documents, thread queries, and a package skeleton with no functionality yet.
 
 ## Intended workflow
 
