@@ -24,6 +24,8 @@ Invariants for any session on this repository. Read [README.md](README.md), the 
 
 10. **A record written before the work is a plan.** Changelog entries are written at release time, from what shipped.
 
+11. **Agents do not claim authorship.** The person directing the work is the commit author. An agent does not set itself as author or co-author, and commit messages and pull or merge request bodies carry no AI attribution (no `Co-Authored-By` trailer naming a model, no session link, no "Generated with" footer).
+
 ## Style
 
 Draft documents with the `better-language-skill` skill. American English spelling. Section headings are sentences or noun phrases. No em-dashes for sentence flow. State material impersonally in documentation. Do not estimate work in calendar time.
