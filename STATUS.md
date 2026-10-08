@@ -15,6 +15,14 @@ Design. The repository holds decision records, open questions, plans for the pro
 | [0003](docs/decisions/0003-holonic-for-graph-organization.md) | holonic organizes the derived graphs, one holon per model version. |
 | [0004](docs/decisions/0004-python.md) | Python, 3.11 or later. |
 
+## Proposed
+
+| Decision | Content |
+|---|---|
+| [0005](docs/decisions/0005-component-stereotype.md) | Component is a role. A required `bearer` feature records whether a material artifact bears it or an information content entity's concretization does. |
+| [0006](docs/decisions/0006-interface-stereotype.md) | Interface applies to `interface def` and `port def` only, as a directive information content entity. Realized connections are instance data. |
+| [0007](docs/decisions/0007-action-definition-stereotype.md) | The `action def` stereotype is named Process and aligns to BFO process, because CCO's Function is a disposition. |
+
 ## Open work
 
 | Item | Location | State | Next action |
@@ -23,7 +31,7 @@ Design. The repository holds decision records, open questions, plans for the pro
 | Buildability review | [docs/reviews/2026-10-08-buildability.md](docs/reviews/2026-10-08-buildability.md) | Filed as a pull request | Work the ordered list at the end of the review. Items 1 to 5 (license, pins, package and CI, stereotype decisions, thread queries) are one gap-closing pull request; spike 1 follows it |
 | Data for the spike | [zwelz3/weft#1](https://github.com/zwelz3/weft/issues/1) | Requested | The maintainer supplies a component, an instance table, trace data, and an adapter ontology excerpt |
 | Spike 1 | [zwelz3/weft#2](https://github.com/zwelz3/weft/issues/2) | Not started | Steps 1 to 5 and measurements M1 to M4 can start on a public example before #1 is answered. The adopter capabilities plan proposes taking the step 4 queries from the traceability matrix and gap analysis |
-| Profile | [docs/plans/profile-brief.md](docs/plans/profile-brief.md) | Not started | Decide the component, interface, and function stereotypes, recording each in `docs/decisions/` |
+| Profile | [docs/plans/profile-brief.md](docs/plans/profile-brief.md) | Stereotype decisions proposed in 0005 to 0007 | The maintainer accepts or revises 0005 to 0007. Then rename the Function row in the brief to Process and start the requirement stereotype |
 | Report to Flexo maintainers | [docs/outreach/flexo-sysmlv2-rdf.md](docs/outreach/flexo-sysmlv2-rdf.md) | Drafted and reviewed, not filed | The maintainer files it on Open-MBEE/flexo-mms-sysmlv2 |
 | holonic enhancements | [#51](https://github.com/zwelz3/holonic/issues/51), [#52](https://github.com/zwelz3/holonic/issues/52), [#53](https://github.com/zwelz3/holonic/issues/53) | #30 and #50 merged to holonic `main` in [zwelz3/holonic#54](https://github.com/zwelz3/holonic/pull/54), not yet released. Two defects found during that work are in [zwelz3/holonic#56](https://github.com/zwelz3/holonic/pull/56), which replaces #55 (merged into the feature branch after #54, so it missed `main`) | Merge #56. Until holonic 0.9.0 is released, Weft's spike depends on holonic `main`. #52 after spike step 7, which supplies its two-version fixture. #51 and #53 deferred: the adopter needs no cross-source identity yet, and Kotar works against git rather than Flexo |
 
