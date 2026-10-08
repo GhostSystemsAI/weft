@@ -20,6 +20,7 @@ Design. The repository holds decision records, open questions, plans for the pro
 | Item | Location | State | Next action |
 |---|---|---|---|
 | Adopter capabilities | [docs/plans/adopter-capabilities.md](docs/plans/adopter-capabilities.md) | Drafted; four of five questions answered | Verify the three Kotar points under OQ11 with a model edited in Kotar. Decide in the profile work whether a user story is a use case or a requirement with a stakeholder |
+| Buildability review | [docs/reviews/2026-10-08-buildability.md](docs/reviews/2026-10-08-buildability.md) | Filed as a pull request | Work the ordered list at the end of the review. Items 1 to 5 (license, pins, package and CI, stereotype decisions, thread queries) are one gap-closing pull request; spike 1 follows it |
 | Data for the spike | [zwelz3/weft#1](https://github.com/zwelz3/weft/issues/1) | Requested | The maintainer supplies a component, an instance table, trace data, and an adapter ontology excerpt |
 | Spike 1 | [zwelz3/weft#2](https://github.com/zwelz3/weft/issues/2) | Not started | Steps 1 to 5 and measurements M1 to M4 can start on a public example before #1 is answered. The adopter capabilities plan proposes taking the step 4 queries from the traceability matrix and gap analysis |
 | Profile | [docs/plans/profile-brief.md](docs/plans/profile-brief.md) | Not started | Decide the component, interface, and function stereotypes, recording each in `docs/decisions/` |
